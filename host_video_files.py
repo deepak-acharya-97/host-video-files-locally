@@ -6,7 +6,7 @@ app=Flask(__name__,static_url_path='',template_folder='static',static_folder='.'
 
 @app.route('/')
 def loadMasterPage():
-    files=glob("*.mp4")
+    files=glob("*.mp4") ## change this to *.mkv if you want to view .mkv files
     print(files)
     return render_template('index.html',files=files)
 
