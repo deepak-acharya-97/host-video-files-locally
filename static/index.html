@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Host Personal Laptop Files Into Boeing Laptop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- <div class="well">Deepak Acharya</div>
+    {% for i in files %}
+    <span class="media">
+        <video width="320" height="240" controls>
+            <source src="{{i}}" type="video/mp4"> Your browser does not support the video tag.
+        </video>
+    </span>
+    {% endfor %} -->
+    <div class="container">
+        <div class="jumbotron">
+            <h2>View Videos Of Personal Laptop In Company Laptop</h2>
+            <p>Allows you to see videos which are in the current directory of the server.</p>
+            <mark>Python</mark>
+            <mark>Flask</mark>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-sm-9 video-player">
+            <video width="100%" height="100%" controls>
+                <source src="{{files[0]}}" type="video/mp4" /> Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="col-sm-3">
+            {% for i in files %}
+            <button type="button" class="btn btn-link btn-block">{{i}}</button>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                console.log("clicked");
+                var src = $(this).text();
+                var html = `<video width="100%" height="100%" controls>\
+                <source src="${src}" type="video/mp4"/> Your browser does not support the video tag.\
+                </video>`
+                $("video").remove();
+                $(".video-player").append(html);
+                console.log($("source").attr("src"));
+            })
+        });
+    </script>
+</body>
+
+</html>
